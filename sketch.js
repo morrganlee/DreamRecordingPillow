@@ -44,13 +44,6 @@ function preload() {
   complexStateMachine = new ComplexStateMachine("data/interactionTable.csv", "data/clickableLayout.csv");
 
   // buttonFont = textFont("swear-display");
-
-  // load images
-  dreamIcon = loadImage('assets/research.png');
-  socialIcon = loadImage('assets/social.png');
-  dayIcon = loadImage('assets/daydream.png');
-  paraIcon = loadImage('assets/nightmare.png');
-  publicIcon = loadImage('assets/public.png');
 }
 
 // Setup code goes here
