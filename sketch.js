@@ -23,6 +23,7 @@ var clickables;                    // an array of clickable objects
 var currentStateName = "";
 var iconImage;
 
+// colors
 var navyColor = '#02144F';
 var yellowColor = '#F8F2C9';
 var blueColor = '#C9E4F8';
@@ -31,17 +32,32 @@ var purpleColor = '#D5CAE2';
 
 var buttonFont;
 
+// icons
+var dreamIcon;
+var socialIcon;
+var dayIcon;
+var paraIcon;
+var publicIcon;
+
 function preload() {
   clickablesManager = new ClickableManager('data/clickableLayout.csv');
   complexStateMachine = new ComplexStateMachine("data/interactionTable.csv", "data/clickableLayout.csv");
 
   // buttonFont = textFont("swear-display");
+
+  // load images
+  dreamIcon = loadImage('assets/research.png');
+  socialIcon = loadImage('assets/social.png');
+  dayIcon = loadImage('assets/daydream.png');
+  paraIcon = loadImage('assets/nightmare.png');
+  publicIcon = loadImage('assets/public.png');
 }
 
 // Setup code goes here
 function setup() {
   createCanvas(1280, 720);
-  imageMode(CENTER);
+  imageMode(CORNER);
+  rectMode(CORNER);
 
   // setup the clickables = this will allocate the array
   clickables = clickablesManager.setup();
@@ -73,7 +89,7 @@ function setupClickables() {
     clickables[i].onOutside = clickableButtonOnOutside;
     clickables[i].onPress = clickableButtonPressed;
     clickables[i].textFont = "swear-display";
-    clickables[i].width = 150;
+    clickables[i].width = 100;
   }
 }
 
@@ -121,7 +137,7 @@ function drawBackground() {
 
 function drawImage() {
   if( iconImage !== undefined ) {
-    image(iconImage, width/2, height/2, 500, 500);
+    image(iconImage, 0, 0, 1280, 720);
   }  
 }
 
@@ -129,12 +145,12 @@ function drawOther() {
   push();
 
    // Draw mood — if not on Splash or Instructions screen  
-   if( currentStateName !== "intro" && currentStateName !== "instructions") {
-    fill(color(yellowColor));
-    // textFont(buttonFont);
-    textSize(50);
-    text(currentStateName, width/6, 150);
-  }
+  //  if( currentStateName !== "intro" && currentStateName !== "instructions") {
+  //   fill(color(yellowColor));
+  //   // textFont(buttonFont);
+  //   textSize(50);
+  //   text(currentStateName, width/6, 150);
+  // }
 
   pop();
 }

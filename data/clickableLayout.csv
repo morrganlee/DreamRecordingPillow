@@ -1,18 +1,21 @@
 ID,Name,PNGFilename,Text,x,y,visible
-0,next,,Next,900,500,yes
-1,dreamResearcher,,Dream Researcher,100,500,yes
-2,socialDreamer,,Social Dreamer,300,500,yes
-3,dayDreamer,,Day-Dreamer,500,500,yes
-4,paraDreamer,,Parasomniac,700,500,yes
-5,publicDreamer,,Public Figure,900,500,yes
-6,ignore,,Ignore it,900,400,yes
-7,contact,,Tell someone,900,500,yes
-8,swap,,Swap them,900,400,yes
-9,lie,,Lie,900,500,yes
-10,sleep,,Sleep,900,400,yes
-11,getUp,,Get out of bed,900,500,yes
-12,turnOn,,Turn it on,900,400,yes
-13,turnOff,,Leave it off,900,500,yes
-14,call,,Call your publicist,900,400,yes
-15,rant,,Go on a Twitter rant,900,500,yes
-16,tryAgain,,Try Again,900,500,yes
+0,next,,Next,1050,550,
+1,ignore,assets/selection.png,,653,342,
+2,expose,assets/selection.png,,653,482,
+3,allow,assets/selection.png,,653,324,
+4,send,assets/selection.png,,653,467,
+5,publicist,assets/selection.png,,653,341,
+6,blind,assets/selection.png,,653,486,
+7,sleep,assets/selection.png,,653,342,
+8,work,assets/selection.png,,653,467,
+9,tell,assets/selection.png,,653,342,
+10,talk,assets/selection.png,,653,336,
+11,write,assets/selection.png,,653,479,
+12,tweet,assets/selection.png,,653,336,
+13,text,assets/selection.png,,653,449,
+14,off,assets/selection.png,,653,342,
+15,on,assets/selection.png,,653,467,
+16,joke,assets/selection.png,,653,336,
+17,condem,assets/selection.png,,653,467,
+18,tryAgain,,Try Again,1050,550,
+18,lie,assets/selection.png,,653,482
