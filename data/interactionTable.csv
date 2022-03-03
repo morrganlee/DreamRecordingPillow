@@ -13,7 +13,7 @@ dayScene1,,work,paraScene1
 socialScene1,assets/SocialScenarioA.png,tell,paraScene1
 socialScene1,,lie,socialSceneEnd
 socialSceneEnd,assets/SocialEnd.png,next,endScene
-paraScene1,assets/NightmareScenarioA.png,talk,paraSceneEndGood
+paraScene1,assets/NightmareScenarioA.png,talk,paraSceneEndBad
 paraScene1,,write,dreamSceneEnd
 paraSceneEndGood,assets/NightmareEndGood.png,next,endScene
 dreamSceneEnd,assets/ResearcherEnd.png,next,endScene
