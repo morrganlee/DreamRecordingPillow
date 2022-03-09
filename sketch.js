@@ -46,6 +46,7 @@ var dayScore = 0;
 var paraScore = 0;
 var publicScore = 0;
   // star image and x coordinates
+var yStar;
 var star;
 var firstStarX = 153;
   // returns selectionIndex
@@ -65,6 +66,7 @@ function preload() {
   publicIcon = loadImage('assets/public.png');
 
   star = loadImage('assets/star.png');
+  yStar = loadImage('assets/star-yellow.png');
 
   buttonIcon = loadImage('assets/selection.png');
   hoverButtonIcon = loadImage('assets/select_hover.png');
@@ -95,13 +97,17 @@ function draw() {
   drawBackground();
   drawImage();
   drawUI();
-  // keepScore();
+
+  //star follows mouse
+  mouseStar();
 
   if( currentStateName === "players"){
     drawPlayersInfo();
   }
+
   if( currentStateName !== 'intro' && currentStateName !== 'instructions' && currentStateName !== 'players' && currentStateName !== 'endScene'){
     drawScore();
+    hoverPlayersName();
   }
 }
 
@@ -125,7 +131,7 @@ function setupClickables() {
   }
 }
 
-// text
+// text clickables
 clickableButtonHoverText = function () {
   this.color = blueColor;
   this.noTint = false;
@@ -136,7 +142,7 @@ clickableButtonOnOutsideText = function () {
   this.color = yellowColor;
 }
 
-// image
+// image clickables
 clickableButtonHoverImg = function() {
   this.setImage(hoverButtonIcon);
 }
@@ -147,7 +153,7 @@ clickableButtonOnOutsideImg = function() {
 
 clickableButtonPressed = function() {
   complexStateMachine.clickablePressed(this.name);
-  print('index is ' + this.id);
+  // print('index is ' + this.id); debugging
   keepScore(this.id);
 }
 
@@ -192,7 +198,7 @@ function drawPlayersInfo() {
         textSize(25);
         textFont('swear-display');
         noStroke();
-        text('A recent medical school graduate who just moved to New York for a job with a focus on studying dreams. They have a strong ethics system which is required for the job, which involves objectively watching dreams to analyze societal trends. Still, they are new to the job and don’t want to overstep any boundaries while also knowing that anything they do will set a precedent for future issues.', 406, 355, 566);
+        text("They are a recent medical school graduate who just moved to New York for a job with a focus on studying dreams. They have a strong ethics system, which helps their job: objectively watching dreams to analyze societal trends. Still, they don’t want to overstep any boundaries while knowing that anything they do will set a precedent for the future.", 406, 355, 566);
     }
     else if(mouseY > 289 && mouseY < 379){ // social dreamer
         image(socialIcon, 390, 213, 115, 115);
@@ -208,7 +214,7 @@ function drawPlayersInfo() {
         textSize(25);
         textFont('swear-display');
         noStroke();
-        text('A social media manager for a startup in Brooklyn, they know the ins and outs of the internet and are incredibly social. They over-share and over-post everything from their life on the internet and to the barista at their local cafe. They just moved in with their partner of 2 years, and haven’t had eyes for anyone else… at least seriously', 406, 355, 566);
+        text("As a social media manager for a startup in Brooklyn, they know the ins and outs of the internet and are incredibly social. They over-share everything from their life on the internet and to the barista making their latte. They just moved in with their partner, and haven’t had eyes for anyone else… at least seriously.", 406, 355, 566);
     }
     else if(mouseY > 383 && mouseY < 473){ // daydreamer
         image(dayIcon, 390, 213, 115, 115);
@@ -224,7 +230,7 @@ function drawPlayersInfo() {
         textSize(25);
         textFont('swear-display');
         noStroke();
-        text('They comes from a long line of addicts, and was officially diagnosed with depression and OCD a month ago. Now  in their fourth year working as the publicist for a . The constant stress and intrusive thoughts drive them into daily headaches at the end of the day, and all they want to do is hibernate for a week, or month, or year, or two.', 406, 355, 566);
+        text('They come from a long line of addicts and was officially diagnosed with depression and OCD a month ago. Now  in their fourth year working as the publicist for an actor, the constant stress and intrusive thoughts drive them into daily headaches at the end of the day. All they want to do is hibernate for a week, or month, or year, or two.', 406, 355, 566);
     }
     else if(mouseY > 477 && mouseY < 567){ // parasomniac
         image(paraIcon, 390, 213, 115, 115);
@@ -240,7 +246,7 @@ function drawPlayersInfo() {
         textSize(25);
         textFont('swear-display');
         noStroke();
-        text('A grad student at Columbia, they just found a therapist to help with their nightmares, anxiety, and lack of sleep because of that. However, sleeping an average of 4 hours a night is starting to affect them as they’re balancing their senior thesis, a full time job, classes, and moving in with their partner of 2 years.', 406, 355, 566);
+        text("A grad student at Columbia, they just found a therapist to help with their nightmares, anxiety, and lack of sleep because of that. However, sleeping an average of 4 hours a night is starting to affect them as they’re balancing their thesis, a full time job, classes, and moving in with their partner in Brooklyn.", 406, 355, 566);
     }
     else if(mouseY > 569 && mouseY < 661){ // the public figure
         image(publicIcon, 390, 213, 115, 115);
@@ -256,9 +262,34 @@ function drawPlayersInfo() {
         textSize(25);
         textFont('swear-display');
         noStroke();
-        text('Best known for roles on the golden screen and speaking up against injustice online, they have been in the spotlight for years. They know how to avoid the paparazzi and have a (somewhat) healthy relationship with fans on the internet. There was that one restraining order a year ago, but that got squared away by the best publicist in the world.', 406, 355, 566);
+        text('Best known for roles on the golden screen and speaking up for justice online, they have been in the spotlight for years. They know how to avoid the paparazzi and have a (somewhat) healthy relationship with fans on the internet. There have been a iCloud hack or two, but the general public forgot about that by now.', 406, 355, 566);
     }
   }
+}
+
+function hoverPlayersName() {
+  push();
+  textFont('swear-display-cilati');
+  textSize(25);
+  fill(navyColor);
+  if(mouseX > 48 && mouseX < 139){
+    if(mouseY > 60 && mouseY < 151){
+      text("The Dream Researcher", mouseX + 15, mouseY + 5);
+    }
+    else if(mouseY > 187 && mouseY < 272){
+      text("The Social Dreamer", mouseX + 15, mouseY + 5);
+    }
+    else if(mouseY > 315 && mouseY < 406){
+      text("The Day-Dreamer", mouseX + 15, mouseY + 5);
+    }
+    else if(mouseY > 442 && mouseY < 533){
+      text("The Parasomniac",mouseX + 15, mouseY + 5);
+    }
+    else if(mouseY > 569 && mouseY < 660){
+      text("The Public Figure", mouseX + 15, mouseY + 5);
+    }
+  }
+  pop();
 }
 
 function keepScore(selectionIndex) {
@@ -287,6 +318,9 @@ function keepScore(selectionIndex) {
   if(selectionIndex === 8){ // go back to sleep
     if(socialScore === 2){
       socialScore -= 1;
+    }
+    if(socialScore === 0){
+      socialScore = 1;
     }
     if(publicScore === 0){
       publicScore = 1;
@@ -364,4 +398,16 @@ function drawScore(){
   for( let o = 0; o < publicScore; o++){
     image(star, firstStarX + (o * 42), 591);
   }
+}
+
+function mouseStar(){
+  push();
+  imageMode(CENTER);
+  if( currentStateName === 'intro' || currentStateName === 'instructions' || currentStateName === 'players' || currentStateName === 'endScene'){
+    image(yStar, mouseX - 5, mouseY - 5);
+  }
+  else{
+    image(star, mouseX - 5, mouseY - 5);
+  }  
+  pop();
 }

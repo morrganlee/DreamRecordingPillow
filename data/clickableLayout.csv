@@ -1,9 +1,9 @@
 ID,Name,PNGFilename,Text,x,y,visible
-0,next,,Next,1050,550,
-1,tryAgain,,Redo,1050,550,
+0,next,,Next,1070,600,
+1,tryAgain,,Redo,1070,600,
 2,ignore,assets/selection.png,,835,321,
 3,expose,assets/selection.png,,835,507,
-4,allow,assets/selection.png,,835,309,
+4,allow,assets/selection.png,,835,321,
 5,send,assets/selection.png,,835,507,
 6,publicist,assets/selection.png,,835,321,
 7,rant,assets/selection.png,,835,507,
