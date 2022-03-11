@@ -29,6 +29,7 @@ var socialIcon;
 var dayIcon;
 var paraIcon;
 var publicIcon;
+var arrow;
 
 // button images
 var buttonIcon;
@@ -64,6 +65,7 @@ function preload() {
   dayIcon = loadImage('assets/daydream.png');
   paraIcon = loadImage('assets/nightmare.png');
   publicIcon = loadImage('assets/public.png');
+  arrow = loadImage('assets/arrow.png');
 
   star = loadImage('assets/star.png');
   yStar = loadImage('assets/star-yellow.png');
@@ -264,6 +266,17 @@ function drawPlayersInfo() {
         noStroke();
         text('Best known for roles on the golden screen and speaking up for justice online, they have been in the spotlight for years. They know how to avoid the paparazzi and have a (somewhat) healthy relationship with fans on the internet. There have been a iCloud hack or two, but the general public forgot about that by now.', 406, 355, 566);
     }
+  }
+  else{
+    fill(yellowColor);
+    image(arrow, 390, 213, 100, 100);
+    textFont('swear-display-cilati');
+    textSize(62);
+    noStroke();
+    text('Hover over the characters on the right to learn more about them.', 530, 230, 500);
+    stroke(yellowColor);
+    strokeWeight(2);
+    line(525, 290, 670, 290);
   }
 }
 
