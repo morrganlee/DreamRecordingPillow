@@ -186,12 +186,12 @@ function drawUI() {
 
 function drawPlayersInfo() {
   if(mouseX > 80 && mouseX < 320){
+      textSize(62);
+      textFont('swear-display-cilati');
       if(mouseY > 198 && mouseY < 285){ // dream researcher
         image(dreamIcon, 390, 213, 115, 115);
         fill(yellowColor);
         noStroke();
-        textSize(62);
-        textFont('swear-display-cilati');
         text('The Dream', 530, 260);
         text('Researcher', 530, 315);
         stroke(yellowColor);
@@ -206,8 +206,6 @@ function drawPlayersInfo() {
         image(socialIcon, 390, 213, 115, 115);
         fill(pinkColor);
         noStroke();
-        textSize(62);
-        textFont('swear-display-cilati');
         text('The Social', 530, 260);
         text('Dreamer', 530, 315);
         stroke(pinkColor);
@@ -222,8 +220,6 @@ function drawPlayersInfo() {
         image(dayIcon, 390, 213, 115, 115);
         fill(blueColor);
         noStroke();
-        textSize(62);
-        textFont('swear-display-cilati');
         text('The Day-', 530, 260);
         text('Dreamer', 530, 315);
         stroke(blueColor);
@@ -238,8 +234,6 @@ function drawPlayersInfo() {
         image(paraIcon, 390, 213, 115, 115);
         fill(purpleColor);
         noStroke();
-        textSize(62);
-        textFont('swear-display-cilati');
         text('The', 530, 260);
         text('Parasomniac', 530, 315);
         stroke(purpleColor);
@@ -254,8 +248,6 @@ function drawPlayersInfo() {
         image(publicIcon, 390, 213, 115, 115);
         fill(greenColor);
         noStroke();
-        textSize(62);
-        textFont('swear-display-cilati');
         text('The Public', 530, 260);
         text('Figure', 530, 315);
         stroke(greenColor);
@@ -285,6 +277,7 @@ function hoverPlayersName() {
   textFont('swear-display-cilati');
   textSize(25);
   fill(navyColor);
+  noStroke();
   if(mouseX > 48 && mouseX < 139){
     if(mouseY > 60 && mouseY < 151){
       text("The Dream Researcher", mouseX + 15, mouseY + 5);
