@@ -10,7 +10,7 @@ daySceneEnd,assets/DaydreamEnd.png,next,endScene
 publicScene1,assets/PublicScenarioA.png,publicist,dayScene1
 publicScene1,,rant,socialScene1
 dayScene1,assets/DaydreamScenarioA.png,sleep,socialScene2
-dayScene1,,work,paraScene1
+dayScene1,,work,daySceneEnd
 socialScene1,assets/SocialScenarioA.png,tell,paraScene1
 socialScene1,,lie,socialSceneEnd
 socialSceneEnd,assets/SocialEnd.png,next,endScene
